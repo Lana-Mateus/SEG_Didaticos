@@ -16,7 +16,7 @@ flextable)
 
 bd_livros = readtext("C:\\Users\\lanam\\OneDrive\\Área de Trabalho\\Didatico_cortado\\*",
                      docvarsfrom = "filenames")
-                     # modificar o diretório acima para o seu
+                    
 
 # Limpeza de Dados..............................................................
 
@@ -48,11 +48,11 @@ palavras = tokens(bd_livros_texto,
                   remove_separators = TRUE) %>%
   tokens_remove(pattern = c(stopwords(language = "pt"),
                             "nao", "sao", "d", "sobre", "ser", "tambem", "i", "p", "es", "c", "b", "n", "ate", "s", "ja", "re", "so", "in", "m", "t", "ha", "muitos", "r","paulo","ed","ac","co","assim","durante","unidade","doc","quais","onde","alguns","cada","ainda","capitulo","forma","partir","rio","janeiro","ca","ta","tra","ii","apos","havia","alem","media","sob","segundo","outras","outros","la","porem","disso","muitas","entao","voce","po","to","desse","modo","con","estao", 
-                            # as letras acima são letras para serem retiradas do banco de dados das palavras repetidas e podem ser adapatadas conforme necessidade
+                      
                             padding= FALSE))
 
 palavras_dfm = dfm(palavras)
-palavras_mais_repetidas = textstat_frequency(palavras_dfm, n = 100) # adaptar o "n=100" para a quantidade de palavras que você quiser
+palavras_mais_repetidas = textstat_frequency(palavras_dfm, n = 100) 
 palavras_mais_repetidas = palavras_mais_repetidas %>% select(-rank)
 palavras_mais_repetidas = palavras_mais_repetidas %>% select(-docfreq)
 palavras_mais_repetidas = palavras_mais_repetidas %>% select(-group)
